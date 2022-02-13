@@ -8243,15 +8243,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5974468860776391136, guid: 6a2c5e17c5446e4449d2250afb69d7bc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5974468860776391136, guid: 6a2c5e17c5446e4449d2250afb69d7bc, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5974468860776391136, guid: 6a2c5e17c5446e4449d2250afb69d7bc, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5974468860776391136, guid: 6a2c5e17c5446e4449d2250afb69d7bc, type: 3}
       propertyPath: m_LocalPosition.x
