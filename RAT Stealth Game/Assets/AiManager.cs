@@ -6,27 +6,38 @@ using Pathfinding;
 public class AiManager : MonoBehaviour
 {
     public AIDestinationSetter DestSetter;
+    public Ai_Spotted Spotted;
+    public AI_Detection_Signal DetectionSignal;
 
-    public void OnTriggerEnter2D(Collider2D col)
+    public GameObject Player;
+    public GameObject PlayerLastSeen;
+
+    [Range(0,1)]
+    public float DetectionLevel;
+
+    public bool Chasing;
+
+    public void Update()
     {
-        if(col.tag == "Player")
+        if(DetectionLevel > 1)
         {
-            DestSetter.target = col.transform;
+            DetectionLevel = 1;
+        }
+        else if(DetectionLevel < 0)
+        {
+            DetectionLevel = 0;
+        }
+
+        if(Chasing == true)
+        {
+            DestSetter.target = PlayerLastSeen.transform;
+            PlayerLastSeen.transform.position = Player.transform.position;
         }
     }
-    public void OnTriggerStay2D(Collider2D col)
-    {
-        if (col.tag == "Player")
-        {
-            DestSetter.target = col.transform;
-        }
-    }
 
-    public void OnTriggerExit2D(Collider2D col)
+    public void Spotter()
     {
-        if(col.tag == "Player")
-        {
-            DestSetter.target = null;
-        }
+        DestSetter.target = PlayerLastSeen.transform;
+        Chasing = true;
     }
 }
