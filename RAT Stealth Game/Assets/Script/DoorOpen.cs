@@ -14,6 +14,7 @@ public class DoorOpen : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             spriteRenderer.sprite = doorOpen;
+            FindObjectOfType<AudioManager>().Play("DoorOpening");
         }
     }
 

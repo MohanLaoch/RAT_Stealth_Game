@@ -43,4 +43,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e1fb8035fcb3af4cb1df40e5ee0d66e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: BackgroundTheme
+    clip: {fileID: 8300000, guid: aa9c6c3ff90976f4d95080b2cf0e9a3c, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: DoorOpening
+    clip: {fileID: 8300000, guid: dbabe4e925228a440aa7e9bf7eb018c6, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
