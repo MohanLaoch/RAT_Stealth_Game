@@ -16,11 +16,20 @@ public class DoorOpen : MonoBehaviour
             spriteRenderer.sprite = doorOpen;
             FindObjectOfType<AudioManager>().Play("DoorOpening");
         }
+        else if (other.gameObject.CompareTag("Enemy"))
+        {
+            spriteRenderer.sprite = doorOpen;
+            FindObjectOfType<AudioManager>().Play("DoorOpening");
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
+        {
+            spriteRenderer.sprite = doorClosed;
+        }
+        else if (other.gameObject.CompareTag("Enemy"))
         {
             spriteRenderer.sprite = doorClosed;
         }
