@@ -5,9 +5,14 @@ using UnityEngine;
 public class AI_Detection_Signal : MonoBehaviour
 {
     public AiManager AiManager;
-    public Ai_Spotted Spotted;
+    private Ai_Spotted Spotted;
 
     public bool PlayerinArea;
+
+    private void Start()
+    {
+        Spotted = AiManager.fieldOfView.GetComponent<Ai_Spotted>();
+    }
 
     public void OnTriggerStay2D(Collider2D col)
     {
@@ -40,5 +45,9 @@ public class AI_Detection_Signal : MonoBehaviour
             AiManager.DetectionLevel -= 0.01f;
         }
 
+        if(Spotted == null)
+        {
+            Spotted = AiManager.fieldOfView.GetComponent<Ai_Spotted>();
+        }
     }
 }

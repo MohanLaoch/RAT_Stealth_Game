@@ -5,22 +5,23 @@ using CodeMonkey.Utils;
 
 public class FieldOfView : MonoBehaviour
 {
-    [SerializeField] private LayerMask layerMask;
+    public LayerMask layerMask;
+    public AiManager AiManager;
     private Mesh mesh;
-    private float fov = 10f;
-    private Vector3 origin;
-    private float startingAngle;
-    float viewDistance = 10f;
+    public float fov = 90f;
+    public Vector3 origin;
+    public float startingAngle = 90f;
+    public float viewDistance = 10f;
 
     private void Start()
     {
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
-        fov = 90f;
-        origin = Vector3.zero;
+        //fov = 90f;
+        //viewDistance = 50f;
+        //origin = Vector3.zero;
     }
-
-    private void LateUpdate()
+    public void LateUpdate()
     {
         int rayCount = 50;
         float angle = startingAngle;
@@ -34,19 +35,22 @@ public class FieldOfView : MonoBehaviour
 
         int vertexIndex = 1;
         int triangleIndex = 0;
+
         for (int i = 0; i <= rayCount; i++)
         {
+            Vector3 vertex;
             RaycastHit2D raycasthit2D = Physics2D.Raycast(origin, UtilsClass.GetVectorFromAngle(angle), viewDistance, layerMask);
             if (raycasthit2D.collider == null)
             {
                 //No Hit
-                vertices[vertexIndex] = origin + UtilsClass.GetVectorFromAngle(angle) * viewDistance;
+                vertex = origin + UtilsClass.GetVectorFromAngle(angle) * viewDistance;
             }
             else
             {
                 //Hit object
-                vertices[vertexIndex] = raycasthit2D.point;
+                vertex = raycasthit2D.point;
             }
+            vertices[vertexIndex] = vertex;
 
             if (i > 0)
             {
@@ -65,8 +69,8 @@ public class FieldOfView : MonoBehaviour
         mesh.vertices = vertices;
         mesh.uv = uv;
         mesh.triangles = triangles;
+        mesh.bounds = new Bounds(origin, Vector3.one * 1000f);
     }
-
     public void SetOrigin(Vector3 origin)
     {
         this.origin = origin;
@@ -74,7 +78,7 @@ public class FieldOfView : MonoBehaviour
 
     public void SetAimDirection(Vector3 aimDirection)
     {
-        startingAngle = UtilsClass.GetAngleFromVectorFloat(aimDirection) - fov / 2f;
+        startingAngle = UtilsClass.GetAngleFromVectorFloat(aimDirection) + fov/2f;
     }
 
     public void SetFoV(float fov)
