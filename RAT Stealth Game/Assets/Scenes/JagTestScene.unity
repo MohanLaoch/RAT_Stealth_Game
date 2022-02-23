@@ -946,26 +946,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1000873056683291911, guid: 9bb5412a1cc2d194bbbfeafabe3b2c70, type: 3}
-      propertyPath: sounds.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000873056683291911, guid: 9bb5412a1cc2d194bbbfeafabe3b2c70, type: 3}
-      propertyPath: sounds.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 8c40a1dc4235d3d42954ddf3362dc3c0, type: 3}
-    - target: {fileID: 1000873056683291911, guid: 9bb5412a1cc2d194bbbfeafabe3b2c70, type: 3}
-      propertyPath: sounds.Array.data[2].name
-      value: GameWin
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000873056683291911, guid: 9bb5412a1cc2d194bbbfeafabe3b2c70, type: 3}
-      propertyPath: sounds.Array.data[2].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000873056683291911, guid: 9bb5412a1cc2d194bbbfeafabe3b2c70, type: 3}
-      propertyPath: sounds.Array.data[2].volume
-      value: 0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 3915123416043067266, guid: 9bb5412a1cc2d194bbbfeafabe3b2c70, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -8661,14 +8641,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 366181946}
-    - target: {fileID: 1395418112, guid: e91d38aa0485e7d498aa43ebb14e3efc, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1395418112, guid: e91d38aa0485e7d498aa43ebb14e3efc, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6969746046850338378, guid: e91d38aa0485e7d498aa43ebb14e3efc, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -9020,14 +8992,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8947892326389061904, guid: 4668260d9ecb6e94ebc75232093ab711, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8947892326389061904, guid: 4668260d9ecb6e94ebc75232093ab711, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8947892326619204482, guid: 4668260d9ecb6e94ebc75232093ab711, type: 3}
       propertyPath: m_Name
       value: UI
@@ -9114,14 +9078,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8947892326619204542, guid: 4668260d9ecb6e94ebc75232093ab711, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8947892326625099668, guid: 4668260d9ecb6e94ebc75232093ab711, type: 3}
-      propertyPath: m_Name
-      value: HBTemplate
-      objectReference: {fileID: 0}
-    - target: {fileID: 8947892326625099668, guid: 4668260d9ecb6e94ebc75232093ab711, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -56,3 +56,15 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: GameWin
+    clip: {fileID: 8300000, guid: 8c40a1dc4235d3d42954ddf3362dc3c0, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GameLoose
+    clip: {fileID: 8300000, guid: b33e30591fda6f049971e9d3cef9228a, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
