@@ -21,30 +21,47 @@ public class PlayerMovement : MonoBehaviour
     private bool canDamge = true;
     public float invulnerableTimer;
 
+    VentsSystem ventsSystem;
+    SpriteRenderer playerSpriteRenderer;
+
+    bool canMove = true;
+
     void Update()
     {
-
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Speed", movement.sqrMagnitude);
-
-
-        if (Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 ||
-            Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
+        if (canMove == true)
         {
-           animator.SetFloat("HorizontalIdle", Input.GetAxisRaw("Horizontal"));
-           animator.SetFloat("VerticalIdle", Input.GetAxisRaw("Vertical"));
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
 
+            animator.SetFloat("Horizontal", movement.x);
+            animator.SetFloat("Vertical", movement.y);
+            animator.SetFloat("Speed", movement.sqrMagnitude);
+
+
+            if (Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 ||
+                Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
+            {
+                animator.SetFloat("HorizontalIdle", Input.GetAxisRaw("Horizontal"));
+                animator.SetFloat("VerticalIdle", Input.GetAxisRaw("Vertical"));
+
+            }
         }
 
-        if(currentHealth <= 0)
+        if (canMove == false)
+        {
+            movement.x = 0;
+            movement.y = 0;
+            animator.SetFloat("Horizontal", 0);
+            animator.SetFloat("Vertical", 0);
+            animator.SetFloat("Speed", 0);
+        }
+
+        if (currentHealth <= 0)
         {
             FindObjectOfType<AudioManager>().Stop("BackgroundTheme");
             FindObjectOfType<AudioManager>().Play("GameLoose");
             Endgame.SetActive(true);
+            canMove = false;
         }
 
     }
@@ -81,4 +98,50 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(InvulnerableCount());
     }
 
+
+
+    // Vent Stuff
+
+    public void EnterVent(VentsSystem ventsSystem)
+    {
+        this.ventsSystem = ventsSystem;
+    }
+
+    public void VentEntered()
+    {
+        DisablePlayer();
+
+        ventsSystem.PlayerInVent();
+    }
+
+    public bool IsInVent()
+    {
+        return rb.simulated;
+    }
+
+    public void VentExited()
+    {
+        EnablePlayer();
+    }
+
+    void DisablePlayer()
+    {
+        Color c = playerSpriteRenderer.color;
+        c.a = 0;
+        playerSpriteRenderer.color = c;
+        rb.simulated = false;
+    }
+    void EnablePlayer()
+    {
+        Color c = playerSpriteRenderer.color;
+        c.a = 1;
+        playerSpriteRenderer.color = c;
+        rb.simulated = true;
+        MovePlayer();
+    }
+
+    public void MovePlayer()
+    {
+        canMove = true;
+    }
 }
