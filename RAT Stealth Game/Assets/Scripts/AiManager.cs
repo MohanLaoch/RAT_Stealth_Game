@@ -15,16 +15,16 @@ public class AiManager : MonoBehaviour
     [HideInInspector] public FieldOfView fieldOfView;
 
     public AIDestinationSetter DestSetter;
-    public Ai_Spotted Spotted;
-    public AI_Detection_Signal DetectionSignal;
 
     public GameObject Player;
     public GameObject PlayerLastSeen;
 
     [Range(0,1)]
     public float DetectionLevel;
+    public float DetectionSpeed = 0.1f;
 
     public bool Chasing;
+    private bool LOS;
 
     private bool LineofSight;
 
@@ -32,7 +32,6 @@ public class AiManager : MonoBehaviour
     {
         fieldOfView = Instantiate(pfFieldOfView, null).GetComponent<FieldOfView>();
         fieldOfView.AiManager = gameObject.GetComponent<AiManager>();
-        Spotted = fieldOfView.GetComponent<Ai_Spotted>();
         fieldOfView.SetFoV(fov);
         fieldOfView.SetViewDistance(viewDistance);
     }
@@ -50,8 +49,8 @@ public class AiManager : MonoBehaviour
 
         if(Chasing == true)
         {
-            DestSetter.target = PlayerLastSeen.transform;
             PlayerLastSeen.transform.position = Player.transform.position;
+            DestSetter.target = PlayerLastSeen.transform;
         }
 
         if (fieldOfView != null)
@@ -59,12 +58,36 @@ public class AiManager : MonoBehaviour
             fieldOfView.SetOrigin(transform.position);
             fieldOfView.SetAimDirection(GetAimDir());
         }
+
+        if (DetectionLevel <= 0)
+        {
+            Chasing = false;
+        }
+        else if (Chasing == true)
+        {
+            DetectionLevel -= DetectionSpeed / 50;
+        }
     }
+
 
     public void Spotter()
     {
         DestSetter.target = PlayerLastSeen.transform;
         Chasing = true;
+    }
+
+    public void LineOfSight()
+    {
+        if (DetectionLevel != 1)
+        {
+            DetectionLevel += DetectionSpeed / 100;
+        }
+
+        if (DetectionLevel >= 1)
+        {
+            DetectionLevel += DetectionSpeed / 100;
+            Spotter();
+        }
     }
 
     public Vector3 GetAimDir()

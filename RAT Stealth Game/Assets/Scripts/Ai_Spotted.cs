@@ -19,7 +19,6 @@ public class Ai_Spotted : MonoBehaviour
     {
         AiManager = gameObject.GetComponent<FieldOfView>().AiManager;
         thisFOV = gameObject.GetComponent<FieldOfView>();
-        DetectionSignal = AiManager.DetectionSignal;
         Player = GameObject.FindGameObjectWithTag("Player");
     }
 

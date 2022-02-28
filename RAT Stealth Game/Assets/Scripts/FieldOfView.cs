@@ -45,6 +45,11 @@ public class FieldOfView : MonoBehaviour
                 //No Hit
                 vertex = origin + UtilsClass.GetVectorFromAngle(angle) * viewDistance;
             }
+            else if (raycasthit2D.collider.CompareTag("Player"))
+            {
+                AiManager.LineOfSight();
+                vertex = raycasthit2D.point;
+            }
             else
             {
                 //Hit object
