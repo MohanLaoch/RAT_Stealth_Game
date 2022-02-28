@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
 
     public Rigidbody2D rb;
+    public SpriteRenderer playerSpriteRenderer;
 
     Vector2 movement;
 
@@ -22,9 +23,14 @@ public class PlayerMovement : MonoBehaviour
     public float invulnerableTimer;
 
     VentsSystem ventsSystem;
-    SpriteRenderer playerSpriteRenderer;
 
     bool canMove = true;
+
+    void Awake()
+    {
+        playerSpriteRenderer = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     void Update()
     {
@@ -124,6 +130,16 @@ public class PlayerMovement : MonoBehaviour
         EnablePlayer();
     }
 
+    public void MovePlayer()
+    {
+        canMove = true;
+    }
+
+    public void StopPlayer()
+    {
+        canMove = false;
+    }
+
     void DisablePlayer()
     {
         Color c = playerSpriteRenderer.color;
@@ -140,8 +156,4 @@ public class PlayerMovement : MonoBehaviour
         MovePlayer();
     }
 
-    public void MovePlayer()
-    {
-        canMove = true;
-    }
 }

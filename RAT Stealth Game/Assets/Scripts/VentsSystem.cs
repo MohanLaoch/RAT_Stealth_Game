@@ -17,11 +17,11 @@ public class VentsSystem : MonoBehaviour
     ArrowsManager arrowsManager;
 
     #region Awake function
-    void Awake()
-    {
+     void Awake()
+     {
         arrowsManager = FindObjectOfType<ArrowsManager>();
         SetupVents();
-    }
+     }
 
     //Give all vents an ID in this VentsSystem
     public void SetupVents()
@@ -72,7 +72,7 @@ public class VentsSystem : MonoBehaviour
         VentUIButton.onClick.AddListener(() => ExitTheVentSystem());
 
         //Call This here if you just want to skip the Player Animation or if he had nothing
-        //arrowsManager.VentEntered(this, CurrentVentID, connectedVents);
+        arrowsManager.VentEntered(this, CurrentVentID, connectedVents);
     }
 
     //Player Animation is Done and the arrows appear to move through the vents
