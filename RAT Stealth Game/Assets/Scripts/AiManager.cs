@@ -63,7 +63,7 @@ public class AiManager : MonoBehaviour
         {
             Chasing = false;
         }
-        else if (Chasing == true)
+        else
         {
             DetectionLevel -= DetectionSpeed / 50;
         }
