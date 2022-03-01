@@ -742,8 +742,6 @@ MonoBehaviour:
   ForwardDirObj: {fileID: 1477441521}
   fieldOfView: {fileID: 0}
   DestSetter: {fileID: 8118266721986214846}
-  Spotted: {fileID: 0}
-  DetectionSignal: {fileID: 0}
   Player: {fileID: 0}
   PlayerLastSeen: {fileID: 8118266721786161166}
   DetectionLevel: 0
