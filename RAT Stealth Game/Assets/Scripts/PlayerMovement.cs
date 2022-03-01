@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody2D rb;
     public SpriteRenderer playerSpriteRenderer;
+    public CircleCollider2D enemycollider;
 
     Vector2 movement;
 
@@ -22,9 +23,11 @@ public class PlayerMovement : MonoBehaviour
     private bool canDamge = true;
     public float invulnerableTimer;
 
+    public bool canMove = true;
+
     VentsSystem ventsSystem;
 
-    bool canMove = true;
+   
 
     void Awake()
     {

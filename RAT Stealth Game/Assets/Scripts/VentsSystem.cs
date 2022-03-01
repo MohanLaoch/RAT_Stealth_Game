@@ -48,6 +48,7 @@ public class VentsSystem : MonoBehaviour
         VentUIButton.interactable = true;
         VentUIButton.onClick.RemoveAllListeners();
         VentUIButton.onClick.AddListener(() => EnterIntoTheVentSystem());
+
     }
 
     //When a Player Exits a trigger of a vent in this Vents system
@@ -63,6 +64,9 @@ public class VentsSystem : MonoBehaviour
     //Called when Player presses the vent button
     public void EnterIntoTheVentSystem()
     {
+        playerMovement.canMove = false;
+        playerMovement.enemycollider.enabled = false;
+
         //Make the Player Enter the Vent
         playerMovement.EnterVent(this);
         playerMovement.gameObject.transform.position = connectedVents[CurrentVentID].GetPos();
@@ -86,6 +90,8 @@ public class VentsSystem : MonoBehaviour
     //Called when Player presses the vent button when he's inside
     public void ExitTheVentSystem()
     {
+        playerMovement.enemycollider.enabled = true;
+
         //Remove the Arrows
         arrowsManager.ResetArrows();
 
