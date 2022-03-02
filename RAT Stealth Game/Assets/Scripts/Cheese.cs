@@ -8,6 +8,8 @@ public class Cheese : MonoBehaviour
 
     [SerializeField] public GameObject Endgame;
 
+    public GameObject ventbutton;
+
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -16,6 +18,7 @@ public class Cheese : MonoBehaviour
             FindObjectOfType<AudioManager>().Stop("BackgroundTheme");
             FindObjectOfType<AudioManager>().Play("GameWin");
             Endgame.SetActive(true);
+            ventbutton.SetActive(false);
         }
     }
 }

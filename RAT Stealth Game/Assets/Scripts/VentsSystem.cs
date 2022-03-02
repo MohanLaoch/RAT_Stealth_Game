@@ -90,6 +90,7 @@ public class VentsSystem : MonoBehaviour
     //Called when Player presses the vent button when he's inside
     public void ExitTheVentSystem()
     {
+        playerMovement.canMove = true;
         playerMovement.enemycollider.enabled = true;
 
         //Remove the Arrows

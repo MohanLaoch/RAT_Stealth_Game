@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] public GameObject Endgame;
 
+    public GameObject ventbutton;
+
     public float moveSpeed = 5f;
 
     public Rigidbody2D rb;
@@ -70,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
             FindObjectOfType<AudioManager>().Stop("BackgroundTheme");
             FindObjectOfType<AudioManager>().Play("GameLoose");
             Endgame.SetActive(true);
+            ventbutton.SetActive(false);
             canMove = false;
         }
 
