@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Vent
   - Imposter
+  - Mouse
   layers:
   - Default
   - TransparentFX

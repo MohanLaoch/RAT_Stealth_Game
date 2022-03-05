@@ -1,24 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Cheese : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Image UICheese;
 
-    [SerializeField] public GameObject Endgame;
-
-    public GameObject ventbutton;
+    public PlayerMovement player;
 
 
-    void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (col.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player")
         {
-            FindObjectOfType<AudioManager>().Stop("BackgroundTheme");
-            FindObjectOfType<AudioManager>().Play("GameWin");
-            Endgame.SetActive(true);
-            ventbutton.SetActive(false);
+            UICheese.color = new Color(UICheese.color.r, UICheese.color.g, UICheese.color.b, 255f);
+            player.hasCheese = true;
+            Destroy(gameObject);
         }
     }
+
 }

@@ -536,7 +536,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 3
   m_Sprite: {fileID: -6765687925566922741, guid: 67631f026abd9d14eb4b69a7dbfd56be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -582,9 +582,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Endgame: {fileID: 0}
+  ventbutton: {fileID: 0}
   moveSpeed: 3
   rb: {fileID: 5974468860776391150}
   playerSpriteRenderer: {fileID: 5974468860776391151}
+  enemycollider: {fileID: 7297150830347925913}
   animator: {fileID: 5974468860776391137}
   maxHealth: 100
   currentHealth: 100

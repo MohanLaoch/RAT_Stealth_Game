@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] public GameObject Endgame;
+    [SerializeField] public GameObject Loosegame;
+    [SerializeField] public GameObject Wingame;
 
     public GameObject ventbutton;
+    public GameObject UICheese;
 
     public float moveSpeed = 5f;
 
@@ -28,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     public bool canMove = true;
 
     VentsSystem ventsSystem;
+
+    public bool hasCheese = false;
 
    
 
@@ -71,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().Stop("BackgroundTheme");
             FindObjectOfType<AudioManager>().Play("GameLoose");
-            Endgame.SetActive(true);
+            Loosegame.SetActive(true);
             ventbutton.SetActive(false);
             canMove = false;
         }
@@ -99,6 +103,18 @@ public class PlayerMovement : MonoBehaviour
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 TakeDamage(25);
+            }
+        }
+
+        if (hasCheese)
+        {
+            if (collision.gameObject.CompareTag("Mouse"))
+            {
+                FindObjectOfType<AudioManager>().Stop("BackgroundTheme");
+                FindObjectOfType<AudioManager>().Play("GameWin");
+                ventbutton.SetActive(false);
+                UICheese.SetActive(false);
+                Wingame.SetActive(true);
             }
         }
     }
