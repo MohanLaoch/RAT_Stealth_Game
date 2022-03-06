@@ -13,8 +13,9 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
 
     public Rigidbody2D rb;
-    public SpriteRenderer playerSpriteRenderer;
+    //public SpriteRenderer playerSpriteRenderer;
     public CircleCollider2D enemycollider;
+    public SpriteRenderer playerSprite;
 
     Vector2 movement;
 
@@ -33,11 +34,11 @@ public class PlayerMovement : MonoBehaviour
 
     public bool hasCheese = false;
 
-   
+       
 
     void Awake()
     {
-        playerSpriteRenderer = GetComponent<SpriteRenderer>();
+        //playerSpriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -74,9 +75,9 @@ public class PlayerMovement : MonoBehaviour
         if (currentHealth <= 0)
         {
             FindObjectOfType<AudioManager>().Stop("BackgroundTheme");
-            FindObjectOfType<AudioManager>().Play("GameLoose");
             Loosegame.SetActive(true);
             ventbutton.SetActive(false);
+            UICheese.SetActive(false);
             canMove = false;
         }
 
@@ -137,8 +138,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void VentEntered()
     {
-        DisablePlayer();
-
         ventsSystem.PlayerInVent();
     }
 
@@ -149,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void VentExited()
     {
-        EnablePlayer();
+       EnablePlayer();
     }
 
     public void MovePlayer()
@@ -162,18 +161,13 @@ public class PlayerMovement : MonoBehaviour
         canMove = false;
     }
 
-    void DisablePlayer()
+     void DisablePlayer()
     {
-        Color c = playerSpriteRenderer.color;
-        c.a = 0;
-        playerSpriteRenderer.color = c;
         rb.simulated = false;
     }
     void EnablePlayer()
     {
-        Color c = playerSpriteRenderer.color;
-        c.a = 1;
-        playerSpriteRenderer.color = c;
+       
         rb.simulated = true;
         MovePlayer();
     }

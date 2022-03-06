@@ -66,6 +66,8 @@ public class VentsSystem : MonoBehaviour
     {
         playerMovement.canMove = false;
         playerMovement.enemycollider.enabled = false;
+        playerMovement.playerSprite.enabled = false;
+        FindObjectOfType<AudioManager>().Play("MouseSqueak");
 
         //Make the Player Enter the Vent
         playerMovement.EnterVent(this);
@@ -92,6 +94,8 @@ public class VentsSystem : MonoBehaviour
     {
         playerMovement.canMove = true;
         playerMovement.enemycollider.enabled = true;
+        playerMovement.playerSprite.enabled = true;
+        FindObjectOfType<AudioManager>().Play("MouseSqueak");
 
         //Remove the Arrows
         arrowsManager.ResetArrows();

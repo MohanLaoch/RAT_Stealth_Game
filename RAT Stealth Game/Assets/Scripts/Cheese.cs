@@ -14,6 +14,7 @@ public class Cheese : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            FindObjectOfType<AudioManager>().Play("CheeseCollect");
             UICheese.color = new Color(UICheese.color.r, UICheese.color.g, UICheese.color.b, 255f);
             player.hasCheese = true;
             Destroy(gameObject);

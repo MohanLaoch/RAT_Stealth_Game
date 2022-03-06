@@ -63,7 +63,19 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: GameLoose
-    clip: {fileID: 8300000, guid: b33e30591fda6f049971e9d3cef9228a, type: 3}
+    clip: {fileID: 8300000, guid: a2aa08454d051f74d9e69596b08bc720, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MouseSqueak
+    clip: {fileID: 8300000, guid: 9113031edf307a747a801f7e120ff871, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CheeseCollect
+    clip: {fileID: 8300000, guid: 7594f3b6b971ab74aba0b64f6f6623b8, type: 3}
     volume: 0.3
     pitch: 1
     loop: 0
