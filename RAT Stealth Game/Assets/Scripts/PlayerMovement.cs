@@ -34,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
 
     public bool hasCheese = false;
 
+    public GameObject MouseText;
+
     void Awake()
     {
         //playerSpriteRenderer = GetComponent<SpriteRenderer>();
@@ -107,6 +109,19 @@ public class PlayerMovement : MonoBehaviour
                 Wingame.SetActive(true);
             }
         }
+
+        if (!hasCheese)
+        {
+            if (collision.gameObject.CompareTag("Mouse"))
+            {
+                MouseText.SetActive(true);
+            }
+            else if (!collision.gameObject.CompareTag("Mouse"))
+            {
+                MouseText.SetActive(false);
+            }
+        }
+
 
         if (currentHealth == 0)
         {

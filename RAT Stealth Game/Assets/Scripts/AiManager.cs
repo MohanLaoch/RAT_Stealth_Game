@@ -76,7 +76,7 @@ public class AiManager : MonoBehaviour
 
         if(TriggerDetectAudio == true && DetectAudioTriggered != true)
         {
-            //PLAY AUDIO CODE IN HERE
+            FindObjectOfType<AudioManager>().Play("EnemyAlert");
 
 
             DetectAudioTriggered = true;
