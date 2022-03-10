@@ -8,11 +8,25 @@ public class fogcolliders : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        colidn = true;
+        if (col.tag == "Player")
+        {
+            colidn = true;
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.tag == "Player")
+        {
+            colidn = true;
+        }
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        colidn = false;
+        if (col.tag == "Player")
+        {
+            colidn = false;
+        }
     }
 }

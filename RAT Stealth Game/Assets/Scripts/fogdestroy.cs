@@ -14,6 +14,10 @@ public class fogdestroy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Destroy(pater);
+
+        if (col.tag == "Player")
+        {
+            Destroy(pater);
+        }
     }
 }

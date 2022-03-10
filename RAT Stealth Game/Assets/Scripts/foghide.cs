@@ -10,7 +10,7 @@ public class foghide : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        childe = GameObject.Find("Fogsprite");
+        childe = gameObject.transform.Find("Fogsprite").gameObject;
     }
 
     void FixedUpdate()
