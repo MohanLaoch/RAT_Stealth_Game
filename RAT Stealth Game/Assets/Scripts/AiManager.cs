@@ -28,6 +28,10 @@ public class AiManager : MonoBehaviour
 
     private bool LineofSight;
 
+    //AUDIO
+    private bool TriggerDetectAudio;
+    private bool DetectAudioTriggered;
+
     private void Start()
     {
         fieldOfView = Instantiate(pfFieldOfView, null).GetComponent<FieldOfView>();
@@ -62,10 +66,20 @@ public class AiManager : MonoBehaviour
         if (DetectionLevel <= 0)
         {
             Chasing = false;
+            DetectAudioTriggered = false;
+            TriggerDetectAudio = false;
         }
         else
         {
             DetectionLevel -= DetectionSpeed / 50;
+        }
+
+        if(TriggerDetectAudio == true && DetectAudioTriggered != true)
+        {
+            //PLAY AUDIO CODE IN HERE
+
+
+            DetectAudioTriggered = true;
         }
     }
 
@@ -74,6 +88,7 @@ public class AiManager : MonoBehaviour
     {
         DestSetter.target = PlayerLastSeen.transform;
         Chasing = true;
+        TriggerDetectAudio = true;
     }
 
     public void LineOfSight()
