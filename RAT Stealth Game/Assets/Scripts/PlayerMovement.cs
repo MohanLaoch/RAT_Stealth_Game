@@ -34,8 +34,6 @@ public class PlayerMovement : MonoBehaviour
 
     public bool hasCheese = false;
 
-       
-
     void Awake()
     {
         //playerSpriteRenderer = GetComponent<SpriteRenderer>();
@@ -70,15 +68,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("Horizontal", 0);
             animator.SetFloat("Vertical", 0);
             animator.SetFloat("Speed", 0);
-        }
-
-        if (currentHealth <= 0)
-        {
-            FindObjectOfType<AudioManager>().Stop("BackgroundTheme");
-            Loosegame.SetActive(true);
-            ventbutton.SetActive(false);
-            UICheese.SetActive(false);
-            canMove = false;
         }
 
     }
@@ -118,15 +107,27 @@ public class PlayerMovement : MonoBehaviour
                 Wingame.SetActive(true);
             }
         }
+
+        if (currentHealth == 0)
+        {
+            FindObjectOfType<AudioManager>().Stop("BackgroundTheme");
+            FindObjectOfType<AudioManager>().Stop("MouseHit");
+            FindObjectOfType<AudioManager>().Play("MouseDeath");
+            enemycollider.enabled = false;
+            Loosegame.SetActive(true);
+            ventbutton.SetActive(false);
+            UICheese.SetActive(false);
+            canMove = false;
+        }
     }
 
     void TakeDamage(int damage)
     {
+        FindObjectOfType<AudioManager>().Play("MouseHit");
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
         StartCoroutine(InvulnerableCount());
     }
-
 
 
     // Vent Stuff

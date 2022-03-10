@@ -80,3 +80,21 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: MouseHit
+    clip: {fileID: 8300000, guid: aba4d994502b47242ba57cabbec3738d, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyAlert
+    clip: {fileID: 8300000, guid: f35e4353072101c4d91414d6111e857a, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MouseDeath
+    clip: {fileID: 8300000, guid: 78a237037152d8e40982dbf5498168f4, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
