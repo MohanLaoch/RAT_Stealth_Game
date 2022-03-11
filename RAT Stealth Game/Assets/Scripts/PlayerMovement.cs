@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] public GameObject Loosegame;
     [SerializeField] public GameObject Wingame;
 
+    [SerializeField] Button VentUIButton;
+
     public GameObject ventbutton;
     public GameObject UICheese;
+
 
     public float moveSpeed = 5f;
 
@@ -29,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool canDamge = true;
     public float invulnerableTimer;
+
+    public float buttonInteractOffTimer;
 
     public bool canMove = true;
 
@@ -85,10 +91,15 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator InvulnerableCount()
     {
         canDamge = false;
-        Debug.Log("Started");
         yield return new WaitForSeconds(invulnerableTimer);
-        Debug.Log("Ended");
         canDamge = true;
+    }
+
+    IEnumerator ButtonInteractFalse()
+    {
+        yield return new WaitForSeconds(buttonInteractOffTimer);
+        VentUIButton.interactable = false;
+
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -139,6 +150,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (canMove == true)
+        {
+            if (collision.gameObject.CompareTag("Vent"))
+            {
+                VentUIButton.interactable = false;
+            }
+
+        }
+    }
+
     void TakeDamage(int damage)
     {
         FindObjectOfType<AudioManager>().Play("MouseHit");
@@ -168,6 +191,7 @@ public class PlayerMovement : MonoBehaviour
     public void VentExited()
     {
        EnablePlayer();
+        StartCoroutine(ButtonInteractFalse());
     }
 
     public void MovePlayer()

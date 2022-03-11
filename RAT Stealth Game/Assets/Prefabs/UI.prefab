@@ -152,7 +152,7 @@ RectTransform:
   m_Children:
   - {fileID: 917213866}
   m_Father: {fileID: 8947892326619204542}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -543,7 +543,7 @@ RectTransform:
   m_Children:
   - {fileID: 1501374757}
   m_Father: {fileID: 8947892326619204542}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -725,7 +725,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Please go get the cheese for me
+  m_text: Please go get some cheese for me
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1190,7 +1190,7 @@ RectTransform:
   - {fileID: 1228545266}
   - {fileID: 2024299144}
   m_Father: {fileID: 8947892326619204542}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1776,7 +1776,7 @@ RectTransform:
   - {fileID: 7237925075091555261}
   - {fileID: 7102236334894073686}
   m_Father: {fileID: 8947892326619204542}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1955,7 +1955,7 @@ RectTransform:
   m_LocalScale: {x: 0.6, y: 0.6, z: 0}
   m_Children: []
   m_Father: {fileID: 8947892326619204542}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -2266,7 +2266,7 @@ RectTransform:
   - {fileID: 344436886308184023}
   - {fileID: 8864627163837247575}
   m_Father: {fileID: 8947892326619204542}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2413,7 +2413,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "GAME BY: RY, JAM, JAG\n\nASSETS BY: DawnBringer & \n\nMAIN SCREEN RAT
-    BY: Calciumtrice#\n\nMUSIC BY:"
+    BY: Calciumtrice\n\nMUSIC BY: Kevin MacLeod\n\nVENT CODE BY: Fadrik"
 --- !u!1 &8947892325907368357
 GameObject:
   m_ObjectHideFlags: 0
@@ -2662,7 +2662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8947892326143624695
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2680,7 +2680,7 @@ RectTransform:
   - {fileID: 8947892327640571264}
   - {fileID: 8947892326570562161}
   m_Father: {fileID: 8947892326619204542}
-  m_RootOrder: 1
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2928,7 +2928,7 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0.00024414062, y: 4.42807}
   m_SizeDelta: {x: 0.00048828, y: 8.857}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3134,14 +3134,14 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 8947892326625099667}
-  - {fileID: 8947892326143624695}
-  - {fileID: 8947892327631064422}
-  - {fileID: 4292953628063380219}
-  - {fileID: 1610515385804975736}
   - {fileID: 1861598135}
   - {fileID: 521383986}
   - {fileID: 3134405313770083284}
   - {fileID: 1172863836}
+  - {fileID: 4292953628063380219}
+  - {fileID: 1610515385804975736}
+  - {fileID: 8947892327631064422}
+  - {fileID: 8947892326143624695}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3972,7 +3972,7 @@ RectTransform:
   - {fileID: 8947892326092556348}
   - {fileID: 8947892327154397040}
   m_Father: {fileID: 8947892326619204542}
-  m_RootOrder: 2
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
