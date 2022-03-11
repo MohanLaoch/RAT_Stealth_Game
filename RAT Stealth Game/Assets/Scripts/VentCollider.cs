@@ -16,10 +16,10 @@ public class VentCollider : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //When the Imposter Enters the Vent Area
+        //When the Player Enters the Vent Area
         if (other.gameObject.tag == "Vent")
         {
-            //If the Imposter is activated skip
+            //If the Player is activated skip
             //This is used to move the imposter around without activating the triggers
             if (playerMovement.IsInVent())
             {
@@ -30,13 +30,15 @@ public class VentCollider : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        //When the Imposter Exits the Vent Area
+        //When the Player Exits the Vent Area
         if (other.gameObject.tag == "Vent")
         {
             //If the Imposter is activated skip
             //to not allow killing from the vent
-            if (playerMovement.IsInVent()) { 
-                other.gameObject.GetComponent<Vent>().DisableVent();}
+            /*if (playerMovement.IsInVent())
+            { 
+                other.gameObject.GetComponent<Vent>().DisableVent();
+            }*/
         }
     }
 }

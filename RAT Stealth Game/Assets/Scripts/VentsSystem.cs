@@ -66,6 +66,7 @@ public class VentsSystem : MonoBehaviour
     {
         playerMovement.canMove = false;
         playerMovement.enemycollider.enabled = false;
+        playerMovement.playerTriggerCollider.enabled = false;
         playerMovement.playerSprite.enabled = false;
         FindObjectOfType<AudioManager>().Play("MouseSqueak");
 
@@ -94,6 +95,7 @@ public class VentsSystem : MonoBehaviour
     {
         playerMovement.canMove = true;
         playerMovement.enemycollider.enabled = true;
+        playerMovement.playerTriggerCollider.enabled = true;
         playerMovement.playerSprite.enabled = true;
         FindObjectOfType<AudioManager>().Play("MouseSqueak");
 

@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float moveSpeed = 5f;
 
+    public CircleCollider2D playerTriggerCollider;
+
     public Rigidbody2D rb;
     //public SpriteRenderer playerSpriteRenderer;
     public CircleCollider2D enemycollider;
@@ -35,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
     public bool hasCheese = false;
 
     public GameObject MouseText;
+
 
     void Awake()
     {
@@ -159,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsInVent()
     {
-        return rb.simulated;
+       return rb.simulated;
     }
 
     public void VentExited()
@@ -178,9 +181,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
      void DisablePlayer()
-    {
+     {
         rb.simulated = false;
-    }
+     }
     void EnablePlayer()
     {
        
