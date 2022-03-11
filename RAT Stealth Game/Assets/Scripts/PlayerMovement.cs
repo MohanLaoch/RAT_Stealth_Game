@@ -124,19 +124,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (!hasCheese)
-        {
-            if (collision.gameObject.CompareTag("Mouse"))
-            {
-                MouseText.SetActive(true);
-            }
-            else if (!collision.gameObject.CompareTag("Mouse"))
-            {
-                MouseText.SetActive(false);
-            }
-        }
-
-
         if (currentHealth == 0)
         {
             FindObjectOfType<AudioManager>().Stop("BackgroundTheme");
@@ -150,6 +137,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (!hasCheese)
+        {
+            if (collision.gameObject.CompareTag("Mouse"))
+            {
+                MouseText.SetActive(true);
+            }
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (canMove == true)
@@ -159,6 +158,14 @@ public class PlayerMovement : MonoBehaviour
                 VentUIButton.interactable = false;
             }
 
+        }
+
+        if (!hasCheese)
+        {
+            if (collision.gameObject.CompareTag("Mouse"))
+            {
+                MouseText.SetActive(false);
+            }
         }
     }
 
